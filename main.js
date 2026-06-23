@@ -474,57 +474,13 @@ window.showToast = function (msg, type = "") {
 function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 window.capitalize = capitalize;
 
-window.moverCarrusel=function(direccion){
-
-const contenedor=document.getElementById("destacadosGrid");
-
-contenedor.scrollBy({
-
-left:direccion*350,
-
-behavior:"smooth"
-
-});
-
-}
-
-setInterval(()=>{
-
-const c=document.getElementById("destacadosGrid");
-
-if(!c)return;
-
-if(c.scrollLeft+c.clientWidth>=c.scrollWidth){
-
-c.scrollTo({
-
-left:0,
-
-behavior:"smooth"
-
-});
-
-}else{
-
-c.scrollBy({
-
-left:350,
-
-behavior:"smooth"
-
-});
-
-}
-
-},4500);
-
 // ===============================
 // CARRUSEL AUTOMÁTICO DESTACADOS
 // ===============================
 
 let autoCarrusel;
 
-function iniciarCarrusel() {
+window.iniciarCarrusel = function iniciarCarrusel() {
 
     const contenedor = document.getElementById("destacadosGrid");
 

@@ -578,16 +578,8 @@
 
   // ── Página: Index ──────────────────────────
   window.initPage = function () {
-
     renderProductos();
-
-    setTimeout(() => {
-
-        iniciarCarrusel();
-
-    }, 500);
-
-};
+  };
 
 function activarBusqueda(){
 
@@ -649,6 +641,9 @@ contenedor.innerHTML=productos.map(p=>buildCard(p)).join("");
         `<a href="#${c}">${capitalize(c)}</a>`
       ).join("");
     }
+
+    // Iniciar carrusel una vez que los productos ya están en el DOM
+    if (typeof window.iniciarCarrusel === "function") window.iniciarCarrusel();
   };
 
   window.filtrarCat = function (cat, btn) {
