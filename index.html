@@ -343,18 +343,42 @@
     </div>
   </section>
 
+<section class="busqueda-section">
 
+    <input
+        type="text"
+        id="buscadorProductos"
+        placeholder="Buscar muebles..."
+    >
+
+</section>
 
 
   <!-- ── DESTACADOS ── -->
-  <section class="destacados-section" id="destacados">
-    <h2 class="section-title">Los más solicitados</h2>
-    <div class="section-divider"></div>
-    <p class="section-subtitle" id="destacadosSub">Productos seleccionados por nuestros clientes</p>
-    <div class="destacados-grid" id="destacadosGrid">
-      <p class="cargando">Cargando destacados...</p>
+  <div class="carousel-wrapper">
+
+    <button
+        class="carousel-btn"
+        onclick="moverCarrusel(-1)"
+    >
+        ❮
+    </button>
+
+    <div
+        class="destacados-grid"
+        id="destacadosGrid"
+    >
+
     </div>
-  </section>
+
+    <button
+        class="carousel-btn"
+        onclick="moverCarrusel(1)"
+    >
+        ❯
+    </button>
+
+</div>
 
   <!-- ── TODOS LOS PRODUCTOS ── -->
   <section class="productos-section" id="todos">
@@ -554,8 +578,44 @@
 
   // ── Página: Index ──────────────────────────
   window.initPage = function () {
+
     renderProductos();
-  };
+
+    setTimeout(() => {
+
+        iniciarCarrusel();
+
+    }, 500);
+
+};
+
+function activarBusqueda(){
+
+const buscador=document.getElementById("buscadorProductos");
+
+if(!buscador)return;
+
+buscador.addEventListener("input",()=>{
+
+const texto=buscador.value.toLowerCase();
+
+const productos=window.MG.productos.filter(producto=>{
+
+return producto.nombre.toLowerCase().includes(texto)||
+
+producto.categoria.toLowerCase().includes(texto)||
+
+(producto.descripcion||"").toLowerCase().includes(texto);
+
+});
+
+const contenedor=document.getElementById("productosContainer");
+
+contenedor.innerHTML=productos.map(p=>buildCard(p)).join("");
+
+});
+
+}
 
   window.renderProductos = function () {
     const prods = window.MG?.productos || [];

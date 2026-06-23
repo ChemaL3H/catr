@@ -473,3 +473,113 @@ window.showToast = function (msg, type = "") {
 
 function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 window.capitalize = capitalize;
+
+window.moverCarrusel=function(direccion){
+
+const contenedor=document.getElementById("destacadosGrid");
+
+contenedor.scrollBy({
+
+left:direccion*350,
+
+behavior:"smooth"
+
+});
+
+}
+
+setInterval(()=>{
+
+const c=document.getElementById("destacadosGrid");
+
+if(!c)return;
+
+if(c.scrollLeft+c.clientWidth>=c.scrollWidth){
+
+c.scrollTo({
+
+left:0,
+
+behavior:"smooth"
+
+});
+
+}else{
+
+c.scrollBy({
+
+left:350,
+
+behavior:"smooth"
+
+});
+
+}
+
+},4500);
+
+// ===============================
+// CARRUSEL AUTOMÁTICO DESTACADOS
+// ===============================
+
+let autoCarrusel;
+
+function iniciarCarrusel() {
+
+    const contenedor = document.getElementById("destacadosGrid");
+
+    if (!contenedor) return;
+
+    clearInterval(autoCarrusel);
+
+    autoCarrusel = setInterval(() => {
+
+        const tarjeta = contenedor.querySelector(".card");
+
+        if (!tarjeta) return;
+
+        const ancho = tarjeta.offsetWidth + 20;
+
+        if (contenedor.scrollLeft + contenedor.clientWidth >= contenedor.scrollWidth - 5) {
+
+            contenedor.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+
+        } else {
+
+            contenedor.scrollBy({
+                left: ancho,
+                behavior: "smooth"
+            });
+
+        }
+
+    }, 3500);
+
+}
+
+window.moverCarrusel = function(direccion){
+
+    const contenedor = document.getElementById("destacadosGrid");
+
+    const tarjeta = contenedor.querySelector(".card");
+
+    if(!tarjeta) return;
+
+    clearInterval(autoCarrusel);
+
+    const ancho = tarjeta.offsetWidth + 20;
+
+    contenedor.scrollBy({
+
+        left: direccion * ancho,
+
+        behavior:"smooth"
+
+    });
+
+    iniciarCarrusel();
+
+}
