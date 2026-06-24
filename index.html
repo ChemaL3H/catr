@@ -229,8 +229,19 @@
     .trust-item svg { width: 24px; height: 24px; stroke: var(--dorado); flex-shrink: 0; }
 
     .trust-item span { font-size: 13px; font-weight: 400; }
-  </style>
+</style>
 </head>
+<body>
+
+<!-- ── BARRA DE BÚSQUEDA (encima del header) ── -->
+<div id="searchBar">
+  <div class="search-bar-inner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="search" id="searchInput" placeholder="Buscar muebles, roperos, cunas…" autocomplete="off" oninput="buscarProductos(this.value)" onfocus="mostrarResultados()" onblur="setTimeout(ocultarResultados,200)">
+    <button class="search-clear" id="searchClear" onclick="limpiarBusqueda()" aria-label="Limpiar búsqueda">✕</button>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
 
 <!-- ── HEADER ──────────────────────────── -->
 <header id="mainHeader">
@@ -242,14 +253,6 @@
         <span class="brand-tagline">Artesanía en madera</span>
       </div>
     </a>
-
-    <!-- Barra de búsqueda -->
-    <div class="header-search" id="headerSearch">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" id="searchInput" placeholder="Buscar muebles…" autocomplete="off" oninput="buscarProductos(this.value)" onfocus="mostrarResultados()" onblur="setTimeout(ocultarResultados,200)">
-      <button class="search-clear" id="searchClear" onclick="limpiarBusqueda()" aria-label="Limpiar búsqueda">✕</button>
-      <div class="search-results" id="searchResults"></div>
-    </div>
 
     <div class="header-actions">
       <!-- Favoritos -->
@@ -275,8 +278,6 @@
     </div>
   </div>
 </header>
-
-<body>
 
 <!-- ── NAV OVERLAY + DRAWER ── -->
 <div class="nav-overlay" id="navOverlay"></div>
