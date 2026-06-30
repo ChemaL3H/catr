@@ -1122,7 +1122,7 @@ footer {
 /* ── CARRUSEL DESTACADOS ── */
 .carrusel-wrapper {
   position: relative;
-  max-width: 380px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1141,9 +1141,10 @@ footer {
   will-change: transform;
 }
 
-.carrusel-slide {
-  min-width: 100%;
-  flex-shrink: 0;
+.carrusel-slide{
+    min-width:33.333%;
+    padding:0 10px;
+    box-sizing:border-box;
 }
 
 .carrusel-slide .card {
@@ -1199,11 +1200,11 @@ footer {
 }
 
 @media (min-width: 640px) {
-  .carrusel-wrapper { max-width: 460px; }
+  .carrusel-wrapper { max-width: 1200px; }
 }
 
 @media (min-width: 900px) {
-  .carrusel-wrapper { max-width: 560px; }
+  .carrusel-wrapper { max-width: 1200px; }
 }
 
 /* ── RESPONSIVE ── */
@@ -1457,4 +1458,9 @@ line-height:1.7;
 
 color:var(--texto-medio);
 
+}
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
 }
