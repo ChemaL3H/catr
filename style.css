@@ -1458,3 +1458,6 @@ line-height:1.7;
 color:var(--texto-medio);
 
 }
+.reviews-section{
+background:red !important;
+}
