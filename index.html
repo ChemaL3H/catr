@@ -704,7 +704,7 @@
   window.irSlide = function(idx) {
     carruselIdx = idx;
     const track = document.getElementById("carruselTrack");
-    if (track) track.style.transform = `translateX(-${idx * 100}%)`;
+    if (track) track.style.transform =`translateX(-${idx*33.333}%)`;
     document.querySelectorAll(".carrusel-dot").forEach((d, i) => d.classList.toggle("active", i === idx));
   };
 
