@@ -602,7 +602,59 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
 }
+.social-links{
 
+display:flex;
+
+justify-content:flex-end;
+
+gap:12px;
+
+margin-top:10px;
+
+}
+
+.social{
+
+width:48px;
+
+height:48px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.social:hover{
+
+transform:translateY(-3px);
+
+}
+
+.whatsapp{
+
+background:#25D366;
+
+}
+
+.facebook{
+
+background:#1877F2;
+
+}
 .footer-brand .brand-name-footer {
   font-family: 'Playfair Display', serif;
   font-size: 20px;
@@ -1224,40 +1276,4 @@ footer {
     width:100%;
     height:260px;
     object-fit:cover;
-}
-.footer-social{
-    display:flex;
-    justify-content:flex-end;
-    gap:12px;
-    margin-top:15px;
-}
-
-.footer-social a{
-    width:50px;
-    height:50px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-
-    font-size:22px;
-
-    transition:.3s;
-}
-
-.footer-social a:hover{
-    transform:translateY(-3px);
-}
-
-.facebook{
-    background:#1877F2;
-}
-
-.whatsapp{
-    background:#25D366;
 }
